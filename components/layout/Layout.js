@@ -1,5 +1,5 @@
-import MainNavigation from './MainNavigation';
 import classes from './Layout.module.css';
+import MainNavigation from './MainNav';
 
 function Layout(props) {
     return (
