@@ -3,6 +3,7 @@ import { MongoClient } from 'mongodb';
 import Head from 'next/head';
 
 const HomePage = (props) => {
+    console.log(process.env.REACT_APP_PASSWORD);
     return (
         <>
             <Head>
@@ -16,7 +17,7 @@ const HomePage = (props) => {
 
 export async function getStaticProps() {
     const client = await MongoClient.connect(
-        'mongodb+srv://pe6ko13:NSpVNwOotfEMDWo6@pe6ko13.vdbvpbl.mongodb.net/meetups?retryWrites=true&w=majority'
+        `mongodb+srv://${process.env.REACT_APP_USERNAME}:${process.env.REACT_APP_PASSWORD}@pe6ko13.vdbvpbl.mongodb.net/meetups?retryWrites=true&w=majority`
     );
     const db = client.db();
     const meetupCollection = db.collection('meetups');
